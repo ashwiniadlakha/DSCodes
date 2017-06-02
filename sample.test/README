@@ -1,0 +1,36 @@
+This is a code for a simple booking system.
+To install and run
+Mysql need to running at port 3306 on localhost
+Database name test.
+Tables seats, bookings
+user:"root"
+password:""
+
+SQL for seats :
+CREATE TABLE `seats` (
+  `seat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `booking_id` varchar(45) DEFAULT NULL,
+  `created_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_booked` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`seat_id`),
+  KEY `booking_ref` (`booking_id`),
+  KEY `is_booked` (`is_booked`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8
+
+SQL for bookings
+CREATE TABLE `bookings` (
+  `booking_id` varchar(45) NOT NULL,
+  `created_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `booking_status` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`booking_id`),
+  KEY `booking_status` (`booking_status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+API DOC : https://docs.google.com/document/d/1_sCiF7Vdn-jFfZR9M_-DODa2IQ1MQ017ZCN_ypwtbyc/edit?usp=sharing
+
+run command
+mvn clean install
+and then deploy the sample.test.war file on any application server.
+NOTE: This project is Tested on tomcat server.

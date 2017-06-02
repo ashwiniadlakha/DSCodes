@@ -1,0 +1,55 @@
+
+public class SegmentedTree {
+
+	
+	public static void main(String[] a){
+		int[] ar = {2,4,3,1,34,23,5,10};
+		Node segmentedTreeRoot= createSegmentedTree(ar, 0, ar.length);
+	}
+
+	private static Node createSegmentedTree(int[] ar, int start, int end) {
+		if(start == end){
+			Node node = new Node();
+			node.value = ar[start];
+			node.left = null;
+			node.right = null;
+		}
+		
+		if((end - start) == 1){
+			Node left = createSegmentedTree(ar, start, start);
+			Node right = createSegmentedTree(ar, end, end);
+			
+			Node node = new Node();
+			node.value = left.value + right.value;
+			node.left = left;
+			node.right = right;
+			node.start = start;
+			node.end = end;
+			return node;
+		}
+		
+		int mid = (start-end)/2;
+		Node left = createSegmentedTree(ar, start, mid);
+		Node right = createSegmentedTree(ar, mid+1, end);
+		
+		Node node = new Node();
+		node.value = left.value + right.value;
+		node.left = left;
+		node.right = right;
+		node.start = start;
+		node.end = end;
+		return node;
+		
+	}
+
+	
+	
+}
+
+class Node{
+	Node left;
+	Node right;
+	int start;
+	int end;
+	int value;
+}
