@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;sample.test.dao.SeatsDao&apos; to &apos;BookingSystemDao&apos;&#x0A;- Original project: &apos;sample.test&apos;&#x0A;- Original element: &apos;sample.test.dao.SeatsDao&apos;&#x0A;- Renamed element: &apos;sample.test.dao.BookingSystemDao&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;SeatsDao&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;sample.test.dao{SeatsDao.java[SeatsDao" matchStrategy="1" name="BookingSystemDao" qualified="false" references="true" similarDeclarations="false" stamp="1467472334090" textual="false" version="1.0"/>
-</session>
