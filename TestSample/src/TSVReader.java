@@ -19,7 +19,7 @@ public class TSVReader {
 
 
     public static void main(String[] args) {
-        String tsvFile = "/Users/ashwini/Downloads/APCashierSheet4.tsv";
+        String tsvFile = "/Users/ashwini/Downloads/APCashierSheet5.tsv";
         parseTsv(tsvFile);
     }
 
@@ -30,7 +30,7 @@ public class TSVReader {
         List<String[]> allRows = parser.parseAll(new File(fileName));
 
         String commandId = "010012710110000149000PAYTW3IN1685597737";
-        int commandItertor = 49003;
+        int commandItertor = 49272;
 
         for (int i = 0; i < allRows.size(); i++) {
 
@@ -97,6 +97,9 @@ public class TSVReader {
     }
 
     private static String processExtendInfo(String extendInfo) {
-        return extendInfo.replaceAll("\"", Matcher.quoteReplacement("\\\"")).replaceAll("\\\\\"", Matcher.quoteReplacement("\\\""));
+        extendInfo =  extendInfo.replaceAll("\"", Matcher.quoteReplacement("\\\""));
+        extendInfo =  extendInfo.replaceAll(Matcher.quoteReplacement("\\\\\""), Matcher.quoteReplacement("\\\""));
+        return extendInfo;
+
     }
 }
