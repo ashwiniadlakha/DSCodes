@@ -1,3 +1,5 @@
+package HackerRankQuestions;
+
 import java.util.Scanner;
 
 class MatrixMultiplication

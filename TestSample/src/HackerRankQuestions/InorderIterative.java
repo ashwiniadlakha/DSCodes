@@ -1,4 +1,4 @@
-// non-recursive java program for inorder traversal
+package HackerRankQuestions;// non-recursive java program for inorder traversal
 	 
 	/* importing the necessary class */
 import java.util.Stack;

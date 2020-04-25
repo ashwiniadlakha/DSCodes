@@ -1,3 +1,4 @@
+package HackerRankQuestions;
 
 public class BuildingWaterVolume {
 

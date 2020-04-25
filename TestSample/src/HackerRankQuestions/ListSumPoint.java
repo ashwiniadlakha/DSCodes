@@ -1,3 +1,5 @@
+package HackerRankQuestions;
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
@@ -38,7 +40,17 @@ public class ListSumPoint {
 		for(int val=start;val<stop;val++){
 			sum = (long)(sum + (long)listAr.get(val));
 		}
+		String value = "asadfas";
+		char[] charValue = value.toCharArray();
+
+		char val = charValue[1];
+		if(value.indexOf(val) != -1){
+
+		}
 		return sum;
+
+
+
 	}
     
    

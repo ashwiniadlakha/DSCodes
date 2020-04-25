@@ -1,3 +1,5 @@
+package HackerRankQuestions;
+
 import javax.xml.transform.Templates;
 
 public class LinkedListTests {

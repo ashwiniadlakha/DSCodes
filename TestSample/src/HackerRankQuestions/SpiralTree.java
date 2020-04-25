@@ -1,4 +1,4 @@
-// Java program for recursive level order traversal in spiral form
+package HackerRankQuestions;// Java program for recursive level order traversal in spiral form
   
 /* A binary tree node has data, pointer to left child 
    and a pointer to right child */
@@ -95,7 +95,7 @@ public class SpiralTree
         tree.root.left.right = new Node(6);
         tree.root.right.left = new Node(5);
         tree.root.right.right = new Node(4);
-        System.out.println("Spiral order traversal of Binary Tree is ");
+        System.out.println("Spiral order traversal of Binary HackerRankQuestions.Tree is ");
         tree.printSpiral(tree.root);
     }
 }

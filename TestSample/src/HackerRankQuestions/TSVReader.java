@@ -1,4 +1,4 @@
-/**
+package HackerRankQuestions; /**
  * Alipay.com Inc.
  * Copyright (c) 2004-2020 All Rights Reserved.
  */
@@ -13,13 +13,13 @@ import java.util.regex.Matcher;
 
 /**
  * @author ashwini.adlakha
- * @version $Id: TSVReader.java, v 0.1 2020-01-28 11:30 AM ashwini.adlakha Exp $$
+ * @version $Id: HackerRankQuestions.TSVReader.java, v 0.1 2020-01-28 11:30 AM ashwini.adlakha Exp $$
  */
 public class TSVReader {
 
 
     public static void main(String[] args) {
-        String tsvFile = "/Users/ashwini/Downloads/APCashierSheet5.tsv";
+        String tsvFile = "/Users/ashwini/Downloads/APCashierSheet7.tsv";
         parseTsv(tsvFile);
     }
 
@@ -30,7 +30,7 @@ public class TSVReader {
         List<String[]> allRows = parser.parseAll(new File(fileName));
 
         String commandId = "010012710110000149000PAYTW3IN1685597737";
-        int commandItertor = 49272;
+        int commandItertor = 49306;
 
         for (int i = 0; i < allRows.size(); i++) {
 
@@ -39,7 +39,7 @@ public class TSVReader {
             String amount = "13467";
             String accountNo = "20070000001363031387";
             String extendInfo = "{\"alipayMerchantId\":\"216820000277875797482\",\"requestType\":\"CAPTURE\",\"productCode\":\"51051000100000000003\",\"totalTxnAmount\":\"5085\",\"userMobile\":\"8003305723\",\"merchantName\":\"UBER\",\"mode\":\"CAPTURE\",\"topupAndPay\":\"false\",\"browserUserAgent\":\"DEFAULT_AGENT\",\"deviceId\":\"8003305723\",\"merchantTransId\":\"9eb27a16a1da34008761710a0afc3a0\",\"paytmMerchantId\":\"YXwYLs51053157209367\",\"PAYTM_USER_ID\":\"302401284\",\"looperExtendInfo\":\"{\\\"callbackUrl\\\":\\\"rmi://pgp-payment-service-srv2.paytm.local:13385/looperCallback\\\",\\\"localCacheKey\\\":\\\"QUERY_CAPTURE_38dff1b6e23a40338f3edafc69f199bapgppaymentservicesrv2\\\"}\"}";
-
+            String  msgId = "802f78d0-9899-4483-9a07-76f1f8ce";
 
 
             transId = allRows.get(i)[2];
@@ -47,8 +47,8 @@ public class TSVReader {
             amount = allRows.get(i)[4];
             accountNo = allRows.get(i)[7];
             extendInfo = processExtendInfo(allRows.get(i)[9]);
-            commandId = commandId + String.valueOf(commandItertor);
             commandItertor++;
+
 
             String curlRequest = "curl -X POST \\\n" +
                     "  https://wallet-preprod.paytm.in/wallet-web/alipayplus/account/command/accounting \\\n" +
@@ -60,25 +60,25 @@ public class TSVReader {
                     "    \"function\": \"alipayplus.account.command.accounting\",\n" +
                     "    \"clientId\": \"PAYTW3IN51\",\n" +
                     "    \"reqTime\": \"2020-01-26T18:46:17+05:30\",\n" +
-                    "    \"reqMsgId\": \"802f78d0-9899-4483-9a07-76f1f8cea456\"\n" +
+                    "    \"reqMsgId\": \"" + msgId + String.valueOf(commandItertor) + "\"\n" +
                     "  },\n" +
                     "  \"body\": {\n" +
                     "      \"commandList\": [\n" +
                     "        {\n" +
-                    "          \"accountNo\": \" " + accountNo + "\",\n" +
+                    "          \"accountNo\": \"" + accountNo + "\",\n" +
                     "          \"accountingScene\": \"PREAUTH_CAPTURE\",\n" +
                     "          \"amount\": {\n" +
                     "            \"currency\": \"INR\",\n" +
                     "            \"value\": \"" + amount + "\"\n" +
                     "          },\n" +
-                    "          \"commandId\": \"" + commandId + "\",\n" +
+                    "          \"commandId\": \"" + commandId + String.valueOf(commandItertor) + "\",\n" +
                     "          \"commandTime\": \"2020-01-27T19:27:40+05:30\",\n" +
                     "          \"commandType\": \"DEBIT\",\n" +
                     "          \"innerAssetType\": \"BALANCE\",\n" +
                     "          \"isMigrated\": false,\n" +
-                    "          \"paymentId\": \"" + commandId + "\",\n" +
+                    "          \"paymentId\": \"" + commandId + String.valueOf(commandItertor) + "\",\n" +
                     "          \"referenceTransId\": \"" + originTransId + "\",\n" +
-                    "          \"transId\": \" " + transId + "\",\n" +
+                    "          \"transId\": \"" + transId + "\",\n" +
                     "          \"transTime\": \"2020-01-27T19:27:40+05:30\"\n" +
                     "        }\n" +
                     "      ],\n" +
@@ -98,7 +98,7 @@ public class TSVReader {
 
     private static String processExtendInfo(String extendInfo) {
         extendInfo =  extendInfo.replaceAll("\"", Matcher.quoteReplacement("\\\""));
-        extendInfo =  extendInfo.replaceAll(Matcher.quoteReplacement("\\\\\""), Matcher.quoteReplacement("\\\""));
+        extendInfo =  extendInfo.replaceAll(Matcher.quoteReplacement("\\\\\""), Matcher.quoteReplacement("\\\\\\\""));
         return extendInfo;
 
     }

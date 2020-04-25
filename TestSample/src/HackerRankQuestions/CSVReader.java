@@ -1,4 +1,4 @@
-/**
+package HackerRankQuestions; /**
  * Alipay.com Inc.
  * Copyright (c) 2004-2020 All Rights Reserved.
  */
@@ -10,7 +10,7 @@ import java.io.IOException;
 
 /**
  * @author ashwini.adlakha
- * @version $Id: CSVReader.java, v 0.1 2020-01-27 11:31 PM ashwini.adlakha Exp $$
+ * @version $Id: HackerRankQuestions.CSVReader.java, v 0.1 2020-01-27 11:31 PM ashwini.adlakha Exp $$
  */
 public class CSVReader {
 

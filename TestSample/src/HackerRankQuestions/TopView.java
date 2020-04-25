@@ -1,4 +1,4 @@
-// Java program to print top view of Binary tree
+package HackerRankQuestions;// Java program to print top view of Binary tree
 import java.util.*;
  
 // Class for a tree node
@@ -30,7 +30,7 @@ class QItem
    }
 }
  
-// Class for a Binary Tree
+// Class for a Binary HackerRankQuestions.Tree
 class Tree
 {
     TreeNode root;
@@ -134,7 +134,7 @@ public class TopView
 {
     public static void main(String[] args)
     {
-        /* Create following Binary Tree
+        /* Create following Binary HackerRankQuestions.Tree
              1
            /  \
           2    3
@@ -151,7 +151,7 @@ public class TopView
         root.left.right.right = new TreeNode(5);
         root.left.right.right.right = new TreeNode(6);
         Tree t = new Tree(root);
-        System.out.println("Following are nodes in top view of Binary Tree");
+        System.out.println("Following are nodes in top view of Binary HackerRankQuestions.Tree");
         t.printTopView();
         t.printVerticalNodes();
     }
