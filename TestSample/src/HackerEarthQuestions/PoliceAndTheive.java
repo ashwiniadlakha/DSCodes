@@ -7,6 +7,7 @@ package HackerEarthQuestions;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 /**
  * @author ashwini.adlakha
  * @version $Id: PoliceAndTheive.java, v 0.1 2020-04-22 5:47 PM ashwini.adlakha Exp $$
@@ -26,6 +27,7 @@ public class PoliceAndTheive {
             char[][] policeThiefArray = getArray(nkValue.get(0), s);
             System.out.println(checkThiefsCaught(policeThiefArray, nkValue.get(1), nkValue.get(0)));
         }
+        Math.max(1, 2);
     }
 
     private static char POLICE = 'P';
